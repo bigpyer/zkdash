@@ -111,6 +111,5 @@ def load(package_name):
     # 通过修饰器获取路由配置
     url_routes = Route.get_routes()
     return url_routes
-
 if __name__ == '__main__':
     pass

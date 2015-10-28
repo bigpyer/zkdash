@@ -32,6 +32,7 @@ class Application(tornado.web.Application):
     """
 
     def __init__(self):
+        # 加载所有的路由handler模块
         routes = load('handler')
         settings = {
             'static_path': os.path.join(os.path.dirname(__file__), "static"),
@@ -50,6 +51,7 @@ class Application(tornado.web.Application):
         """
         status = handler.get_status()
         if status < 400:
+            # TODO ??
             if handler.request.uri[0:7] == '/static':
                 return
             log_method = log.info

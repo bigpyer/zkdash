@@ -13,6 +13,7 @@ All rights reserved.
 import sys
 import os
 import pkgutil
+# 将路径xx/xx/zkdash加入到sys.path中
 sys.path.append(os.path.dirname(os.path.split(os.path.realpath(__file__))[0]))
 
 import model.db
@@ -24,6 +25,9 @@ def sync_db():
     """sync db
     """
     # firstly, import all modules of model.db package
+    # model.db.__path__=['/data/home/xuchengxuan/stark/manager/zkdash/model/db']
+    # prefix=model.db
+    # modname类似于model.db.zd_snapshot_tree
     prefix = model.db.__name__ + "."
     for importer, modname, ispkg in pkgutil.iter_modules(model.db.__path__, prefix):
         __import__(modname)
